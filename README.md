@@ -7,6 +7,6 @@ Example setup:
         bidder: 'publicgood',
         params: {
           partnerId: '{ provided by public good - optional}',
-          slotType: 'all | { optional slot identifier }'
+          slotType: 'all | { slot identifier - optional }'
 }
 ```
