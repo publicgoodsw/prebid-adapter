@@ -53,7 +53,7 @@ describe('PublicGoodAdapter', function () {
             tid: ''
           }
         },
-        sizes: [[1030, 590]]
+        sizes: []
       }
     ];
 
@@ -149,7 +149,7 @@ describe('PublicGoodAdapter', function () {
   describe('spec.buildRequests', function() {
     it('should have a url parameter', function() {
       const request = spec.buildRequests(bidRequests, bidRequest);
-      expect(request.url).to.include('url=');
+      expect(request.data).to.have.property('url');
     });
   });
 
