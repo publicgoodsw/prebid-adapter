@@ -12,7 +12,11 @@ export const spec = {
   supportedMediaTypes: [BANNER, NATIVE],
 
   isBidRequestValid: function (bid) {
-    // assuming we can use this to verify an onboarded partner - maybe verify the slot accuracy
+    // right now all params are optional, the url passed to the service can determine partnerId
+
+    if (PGSAdServed) {
+      return false;
+    }
 
     return true;
   },
@@ -28,9 +32,19 @@ export const spec = {
       slotId = validBidRequests[0].params.slotId;
     }
 
+    let payload = {
+      url: bidderRequest.refererInfo.page || bidderRequest.refererInfo.referer,
+      partner_id: partnerId,
+      isprebid: true,
+      slotid: slotId,
+      bidRequest: validBidRequests[0]
+    }
+
+
     return {
-      method: 'GET',
-      url: `${PUBLIC_GOOD_ENDPOINT}?url=${encodeURIComponent(bidderRequest.refererInfo.page||bidderRequest.refererInfo.referer)}&partnerid=${partnerId}&isprebid=true&slotid=${slotId}`,
+      method: 'POST',
+      url: PUBLIC_GOOD_ENDPOINT,
+      data: payload,
       options: {
         withCredentials: false,
       },
@@ -53,12 +67,13 @@ export const spec = {
       bidResponse.requestId = bidRequest.bidId; // will maybe need to update to pass session_id
       bidResponse.creativeId = serverBody.targetData.target_id;
       bidResponse.cpm = serverBody.targetData.cpm;
-      bidResponse.width = "100%"; // this is undoubtedly wrong, not sure what to do here - maybe just use the minimum of 320
+      bidResponse.width = "320";
       bidResponse.height = "470";
       bidResponse.ad = `<div class="pgs-dpg-flex" partner-id="${partnerId}" style="height: 470px; width: 100%"></div> <script async type="text/JavaScript" src="https://assets.publicgood.com/pgm/v1/dpg.js"></script>`;
       bidResponse.currency = 'USD';
       bidResponse.netRevenue = true;
       bidResponse.ttl = 360; 
+      bidResponse.meta = {advertiserDomains: []};
       bidResponses.push(bidResponse);
       
     }
