@@ -56,7 +56,7 @@ export const spec = {
     const serverBody = serverResponse.body;
     let bidResponses = [];
     let bidResponse = {};
-    let partnerId = serverBody && serverBody.targetData ? serverBody.targetData.partnerId : "error";
+    let partnerId = serverBody && serverBody.targetData ? serverBody.targetData.partner_id : "error";
 
     if (!serverBody || typeof serverBody !== 'object') {
       return [];
