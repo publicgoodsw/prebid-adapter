@@ -6,7 +6,8 @@ Example setup:
 {
         bidder: 'publicgood',
         params: {
-          partnerId: '{ provided by public good - optional}',
-          slotId: 'all | { slot identifier - optional }'
+          partnerId: '-- provided by public good - optional --',
+          slotId: 'all | -- slot identifier - optional --'
+        }
 }
 ```
