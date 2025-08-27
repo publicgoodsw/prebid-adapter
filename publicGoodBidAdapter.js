@@ -69,7 +69,7 @@ export const spec = {
       bidResponse.cpm = serverBody.targetData.cpm;
       bidResponse.width = "320";
       bidResponse.height = "470";
-      bidResponse.ad = `<div class="pgs-dpg-flex" partner-id="${partnerId}" style="height: 470px; width: 100%"></div> <script async type="text/JavaScript" src="https://assets.publicgood.com/pgm/v1/dpg.js"></script>`;
+      bidResponse.ad = `<div class="pgs-dpg-flex" data-pgs-partner-id="${partnerId}" style="height: 470px; width: 100%"></div> <script async type="text/JavaScript" src="https://assets.publicgood.com/pgm/v1/dpg.js"></script>`;
       bidResponse.currency = 'USD';
       bidResponse.netRevenue = true;
       bidResponse.ttl = 360; 
