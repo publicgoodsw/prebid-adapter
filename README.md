@@ -1,13 +1,32 @@
-# prebid-adapter
+# Overview
 
-Example setup:
+**Module Name**: Public Good Bidder Adapter
+**Module Type**: Bidder Adapter
+**Maintainer**: publicgood@publicgood.com
 
+# Description
+
+Public Good's bid adapter is for use with approved publishers only.  Any publisher who wishes to integrate with Pubic Good using the this adapter will need a partner ID.
+Please contact Public Good for additional informationand a negotiated set of slots.  
+
+# Test Parameters
 ```
 {
         bidder: 'publicgood',
         params: {
-          partnerId: '-- provided by public good - optional --',
-          slotId: 'all | -- slot identifier - optional --'
+          partnerId: 'prebid-test',
+          slotId: 'test'
+        }
+}
+```
+
+# Publisher Parameters
+```
+{
+        bidder: 'publicgood',
+        params: {
+          partnerId: '-- partner ID provided by public good --',
+          slotId: 'all | -- optional slot identifier --'
         }
 }
 ```
