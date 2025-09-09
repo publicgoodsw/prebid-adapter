@@ -1,8 +1,8 @@
 # Overview
 
-**Module Name**: Public Good Bidder Adapter  
-**Module Type**: Bidder Adapter  
-**Maintainer**: publicgood@publicgood.com  
+**Module Name**: Public Good Bidder Adapter\
+**Module Type**: Bidder Adapter\
+**Maintainer**: publicgood@publicgood.com\
 
 # Description
 
